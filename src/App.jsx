@@ -45,6 +45,7 @@ export const App = () => {
             let button = null;
 
             if (good === selectedGood) {
+              // Вибраний товар → RemoveButton
               button = (
                 <button
                   onClick={() => setSelectedGood('')}
@@ -55,7 +56,8 @@ export const App = () => {
                   -
                 </button>
               );
-            } else {
+            } else if (selectedGood === '') {
+              // Нічого не вибрано → AddButton для всіх
               button = (
                 <button
                   onClick={() => setSelectedGood(good)}
@@ -67,6 +69,7 @@ export const App = () => {
                 </button>
               );
             }
+            // Інакше (товар не вибрано і вже є вибраний товар) → button = null
 
             return (
               <tr
